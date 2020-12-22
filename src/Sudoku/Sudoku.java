@@ -1,3 +1,5 @@
+package Sudoku;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +11,7 @@ public class Sudoku {
 
     private final List<List<Integer>> grid;
 
-    public Sudoku(int[][] grid) throws Exception {
+    public Sudoku(int[][] grid) {
         List<List<Integer>> transformedGrid = new ArrayList<>();
 
        for (int i=0; i < 9; i++) {
@@ -25,18 +27,6 @@ public class Sudoku {
         System.out.println("Constructor");
     }
 
-    public int getGridWidth() {
-        return gridWidth;
-    }
-
-    public int getGridHeight() {
-        return gridHeight;
-    }
-
-    public List<List<Integer>> getGrid() {
-        return grid;
-    }
-
     public boolean checkRow(int rowNumber) {
         final List<Integer> row = grid.get(rowNumber - 1);
         for (int i = 1; i <= gridWidth; i++) {
@@ -47,10 +37,10 @@ public class Sudoku {
         return true;
     }
 
-    public boolean checkColumn(int columnNUmber) {
+    public boolean checkColumn(int columnIndex) {
         final List<Integer> column = new ArrayList<>();
         for (List<Integer> list : grid) {
-            column.add(list.get(columnNUmber - 1));
+            column.add(list.get(columnIndex));
         }
 
         for (int i = 1; i <= gridHeight; i++) {
@@ -58,18 +48,23 @@ public class Sudoku {
                 return false;
             }
         }
-
         return true;
     }
 
+    private List<List<Integer>> createSubGrid(int gridNumber) {
+        List<List<Integer>> subGrid = new ArrayList<>();
 
-    public boolean checkSubGrid(int gridNumber) {
         int Y_InitialCoordinate = 0;
         int Y_FinalCoordinate = 3;
+
         int X_InitialCoordinate = 0;
         int X_FinalCoordinate = 3;
-        if (gridNumber > 2 && gridNumber < 6) {
 
+        if (gridNumber >= 0 && gridNumber <= 2) {
+            Y_InitialCoordinate = gridNumber * 3;
+            Y_FinalCoordinate = Y_InitialCoordinate + 3;
+        }
+        else if (gridNumber > 2 && gridNumber < 6) {
             Y_InitialCoordinate = (gridNumber % 3) * 3;
             Y_FinalCoordinate = Y_InitialCoordinate + 3;
 
@@ -84,12 +79,14 @@ public class Sudoku {
             X_FinalCoordinate = X_InitialCoordinate + 3;
         }
 
-        List<List<Integer>> subGrid = new ArrayList<>();
-
         for (int rowNumber = Y_InitialCoordinate; rowNumber < Y_FinalCoordinate; rowNumber++) {
             subGrid.add(grid.get(rowNumber).subList(X_InitialCoordinate, X_FinalCoordinate));
         }
+        return subGrid;
+    }
 
+    public boolean checkSubGrid(int gridNumber) {
+        List<List<Integer>> subGrid = this.createSubGrid(gridNumber);
         List<Integer> numbers = new ArrayList<>();
         for (int i = 1; i <= 9; i++) {
             numbers.add(i);

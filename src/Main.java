@@ -1,9 +1,10 @@
+import Sudoku.Sudoku;
+import Sudoku.Threads.LinearThread;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        // initializing 9 X 9 Sudoku grid
+        // initializing 9 X 9 Sudoku.Sudoku grid
         int[][] grid = {
                 {6, 2, 4, 5, 3, 9, 1, 8, 7},
                 {5, 1, 9, 7, 2, 8, 6, 3, 4},
@@ -15,15 +16,8 @@ public class Main {
                 {4, 9, 6, 1, 8, 2, 5, 7, 3},
                 {2, 8, 5, 4, 7, 3, 9, 1, 6}
         };
-        try {
-            // Sudoku object takes sudoku grid as parameter for construction.
-            Sudoku sudoku = new Sudoku(grid);
-            System.out.println(sudoku.checkRow(1));
-            System.out.println(sudoku.checkColumn(1));
-            System.out.println(sudoku.checkSubGrid(8));
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        Thread thread = new Thread(new LinearThread(grid));
+        thread.start();
     }
 }
