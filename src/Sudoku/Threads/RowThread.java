@@ -2,19 +2,18 @@ package Sudoku.Threads;
 
 import Sudoku.Sudoku;
 
-public class LinearThread implements Runnable{
-    private final int[][] grid;
-    public LinearThread(int[][] grid) {
-        this.grid = grid;
+public class RowThread implements Runnable{
+    private final Sudoku sudoku;
+    public RowThread(Sudoku sudoku) {
+        this.sudoku = sudoku;
     }
+
     @Override
     public void run() {
         try {
-            // Sudoku.Sudoku object takes sudoku grid as parameter for construction.
-            Sudoku sudoku = new Sudoku(grid);
-            System.out.println(sudoku.checkRow(1));
-            System.out.println(sudoku.checkColumn(1));
-            System.out.println(sudoku.checkSubGrid(0));
+            System.out.println("#### Rows Thread Is Running ####");
+            sudoku.checkRows();
+            System.out.println("Rows Valid: " + sudoku.isRowsValid());
         }
         catch (Exception e) {
             e.printStackTrace();
