@@ -8,17 +8,10 @@ import java.util.Stack;
 public class Sudoku {
     private final int gridWidth = 9;
     private final int gridHeight = 9;
-
     private final List<List<Integer>> grid;
-    private boolean isRowsValid;
-    private boolean isColumnsValid;
-    private boolean isSubGridsValid;
-    public Sudoku(int[][] grid) {
-        isRowsValid = true;
-        isColumnsValid = true;
-        isSubGridsValid = true;
-        List<List<Integer>> transformedGrid = new ArrayList<>();
 
+    public Sudoku(int[][] grid) {
+        List<List<Integer>> transformedGrid = new ArrayList<>();
        for (int i=0; i < 9; i++) {
            List<Integer> row = new ArrayList<>();
            for (int j = 0; j < 9; j++) {
@@ -26,32 +19,18 @@ public class Sudoku {
            }
            transformedGrid.add(row);
        }
-
-        this.grid = transformedGrid;
-        System.out.println("Original Grid");
-        System.out.println(this.grid);
+       this.grid = transformedGrid;
     }
 
-    public boolean isRowsValid() {
-        return isRowsValid;
-    }
-
-    public boolean isColumnsValid() {
-        return isColumnsValid;
-    }
-
-    public boolean isSubGridsValid() {
-        return isSubGridsValid;
-    }
-
-    public void checkRows() {
+    public boolean checkRows() {
         for (List<Integer> row : grid) {
             for (int i = 1; i <= gridWidth; i++) {
                 if (!row.contains(i)) {
-                    isRowsValid = false;
+                    return false;
                 }
             }
         }
+        return true;
     }
 
     private List<List<Integer>> makeTranspose() {
@@ -63,20 +42,19 @@ public class Sudoku {
             }
             gridTranspose.add(column);
         }
-        System.out.println("Transpose");
-        System.out.println(gridTranspose);
         return gridTranspose;
     }
 
-    public void checkColumn() {
+    public boolean checkColumns() {
         List<List<Integer>> gridTranspose = makeTranspose();
         for (List<Integer> column : gridTranspose) {
             for (int i = 1; i <= gridWidth; i++) {
                 if (!column.contains(i)) {
-                   isColumnsValid = false;
+                   return false;
                 }
             }
         }
+        return true;
     }
 
     private List<List<Integer>> createSubGrid(int gridNumber) {
@@ -113,7 +91,7 @@ public class Sudoku {
         return subGrid;
     }
 
-    public void checkSubGrid(int gridNumber) {
+    public boolean checkSubGrid(int gridNumber) {
         List<List<Integer>> subGrid = this.createSubGrid(gridNumber);
         List<Integer> numbers = new ArrayList<>();
         for (int i = 1; i <= 9; i++) {
@@ -124,6 +102,6 @@ public class Sudoku {
                 numbers.remove(subGrid.get(i).get(j));
             }
         }
-        isSubGridsValid = numbers.isEmpty();
+        return numbers.isEmpty();
     }
 }
