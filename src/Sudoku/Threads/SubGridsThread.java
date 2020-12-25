@@ -5,8 +5,8 @@ import Sudoku.Sudoku;
 import java.util.concurrent.Callable;
 
 public class SubGridsThread implements Callable<Boolean> {
-    private int gridNumber;
-    private Sudoku sudoku;
+    private final int gridNumber;
+    private final Sudoku sudoku;
 
     public SubGridsThread(Sudoku sudoku, int gridNumber) {
         this.sudoku = sudoku;
@@ -14,7 +14,7 @@ public class SubGridsThread implements Callable<Boolean> {
     }
 
     @Override
-    public Boolean call() throws Exception {
+    public Boolean call() {
         return sudoku.checkSubGrid(gridNumber);
     }
 }

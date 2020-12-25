@@ -12,7 +12,8 @@ public class RowsThread implements Callable<Boolean> {
     }
 
     @Override
-    public Boolean call() throws Exception {
+    public Boolean call() {
+        
         return sudoku.checkRows();
     }
 }
