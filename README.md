@@ -40,3 +40,5 @@ Four Thread-Classes to handle four different tasks:
 Main Screen | Results
 ------------ | -------------
 ![Alt Text](https://i.imgur.com/0qFLb8u.png) | ![Alt Text](https://i.imgur.com/M6luO3U.png)
+# Demo
+![Alt Text](https://i.imgur.com/uozOXpH.gif)
