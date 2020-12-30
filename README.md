@@ -36,3 +36,7 @@ Four Thread-Classes to handle four different tasks:
   * Handles the GUI.
 ## The following flowchart shows how threads are executed:
 ![Alt Text](https://i.imgur.com/XEzFb7v.png)
+# Sample Output
+Main Screen | Results
+------------ | -------------
+![Alt Text](https://i.imgur.com/0qFLb8u.png) | ![Alt Text](https://i.imgur.com/M6luO3U.png)
