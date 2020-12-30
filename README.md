@@ -34,5 +34,5 @@ Four Thread-Classes to handle four different tasks:
   * Handles sub-grids validation.
 * GUIThread
   * Handles the GUI.
-##The following flowchart shows how threads are executed:
+## The following flowchart shows how threads are executed:
 ![Alt Text](https://i.imgur.com/XEzFb7v.png)
