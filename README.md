@@ -12,9 +12,9 @@ utilization; multithreading is used such that:
 # Code Overview
 1. Initializing Sudoku grid as a 2D array.
 2. Create an instance of Sudoku class.
-  * The constructor takes 2D array as a parameter.
-  * Transforms the 2D array into a two-dimensional List “List<List<Integer>>” for functionality purposes.
-3. *Sudoku class contains methods that are responsible for validation operations:*
+  1. The constructor takes 2D array as a parameter.
+  2. Transforms the 2D array into a two-dimensional List “List<List<Integer>>” for functionality purposes.
+3. **Sudoku class contains methods that are responsible for validation operations:**
   * checkRows()
   * checkColumns()
   * checkSubGrid(int gridNumber)
