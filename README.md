@@ -41,4 +41,4 @@ Main Screen | Results
 ------------ | -------------
 ![Alt Text](https://i.imgur.com/0qFLb8u.png) | ![Alt Text](https://i.imgur.com/M6luO3U.png)
 # Demo
-![Alt Text](https://i.imgur.com/uozOXpH.gif)
+![Alt Text](https://i.imgur.com/2iqV3PI.gif)
