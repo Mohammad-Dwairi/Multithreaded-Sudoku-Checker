@@ -12,7 +12,7 @@ utilization; multithreading is used such that:
 # Code Overview
 1. Initializing Sudoku grid as a 2D array.
 2. Create an instance of Sudoku class.
-  1.The constructor takes 2D array as a parameter.
+  1. The constructor takes 2D array as a parameter.
   2. Transforms the 2D array into a two-dimensional List “List<List<Integer>>” for functionality purposes.
 3. Sudoku class contains methods that are responsible for validation operations:
   * checkRows()
@@ -23,3 +23,4 @@ utilization; multithreading is used such that:
 
 4. makeTranspose Transposes Sudoku matrix. This gives the ability to treat columns as rows to perform checkRows() on them.
 5. createSubGrid(int gridNumbe) returns 3x3 grid depending on the gridNumber parameter. The following figure illustrates how sub-grids are organized and numbered.
+![Alt Text](https://i.imgur.com/lw8w3Vt.png)
