@@ -24,3 +24,13 @@ utilization; multithreading is used such that:
 4. makeTranspose Transposes Sudoku matrix. This gives the ability to treat columns as rows to perform checkRows() on them.
 5. createSubGrid(int gridNumbe) returns 3x3 grid depending on the gridNumber parameter. The following figure illustrates how sub-grids are organized and numbered.
   * ![Alt Text](https://i.imgur.com/lw8w3Vt.png)
+# Threads
+Four Thread-Classes to handle four different tasks:
+* RowsThread
+  * Handles rows validation.
+* ColumnsThread
+  * Handles columns validation.
+* SubGridsThread
+  * Handles sub-grids validation.
+* GUIThread
+  * Handles the GUI.
